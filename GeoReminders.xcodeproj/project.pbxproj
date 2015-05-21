@@ -18,6 +18,8 @@
 		3ED19FCA1B0E6BD400343D01 /* GeoRemindersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FC91B0E6BD400343D01 /* GeoRemindersTests.m */; };
 		3ED19FD51B0E92C200343D01 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED19FD31B0E92C100343D01 /* FBSDKCoreKit.framework */; };
 		3ED19FD61B0E92C200343D01 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED19FD41B0E92C200343D01 /* FBSDKLoginKit.framework */; };
+		3ED19FDE1B0EA25E00343D01 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FDD1B0EA25E00343D01 /* User.m */; };
+		3ED19FE11B0EA2D300343D01 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FE01B0EA2D300343D01 /* Reminder.m */; };
 		FC21300E6E9282CC74485620 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E49E007CB41A0B264862BBC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,10 @@
 		3ED19FC91B0E6BD400343D01 /* GeoRemindersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoRemindersTests.m; sourceTree = "<group>"; };
 		3ED19FD31B0E92C100343D01 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3ED19FD41B0E92C200343D01 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3ED19FDC1B0EA25E00343D01 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3ED19FDD1B0EA25E00343D01 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3ED19FDF1B0EA2D300343D01 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		3ED19FE01B0EA2D300343D01 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 		3ED19FA61B0E6BD400343D01 /* GeoReminders */ = {
 			isa = PBXGroup;
 			children = (
+				3ED19FD81B0EA07000343D01 /* Models */,
 				3ED19FAB1B0E6BD400343D01 /* AppDelegate.h */,
 				3ED19FAC1B0E6BD400343D01 /* AppDelegate.m */,
 				3ED19FB11B0E6BD400343D01 /* FirstViewController.h */,
@@ -157,6 +164,17 @@
 				0E49E007CB41A0B264862BBC /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3ED19FD81B0EA07000343D01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3ED19FDF1B0EA2D300343D01 /* Reminder.h */,
+				3ED19FE01B0EA2D300343D01 /* Reminder.m */,
+				3ED19FDC1B0EA25E00343D01 /* User.h */,
+				3ED19FDD1B0EA25E00343D01 /* User.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,9 +314,11 @@
 			files = (
 				3ED19FB61B0E6BD400343D01 /* SecondViewController.m in Sources */,
 				3ED19FB01B0E6BD400343D01 /* GeoReminders.xcdatamodeld in Sources */,
+				3ED19FDE1B0EA25E00343D01 /* User.m in Sources */,
 				3ED19FAD1B0E6BD400343D01 /* AppDelegate.m in Sources */,
 				3ED19FAA1B0E6BD400343D01 /* main.m in Sources */,
 				3ED19FB31B0E6BD400343D01 /* FirstViewController.m in Sources */,
+				3ED19FE11B0EA2D300343D01 /* Reminder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
