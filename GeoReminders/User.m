@@ -7,7 +7,7 @@
 //
 
 #import "User.h"
-#import "Reminders.h"
+#import "Reminder.h"
 
 
 @implementation User
