@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TVB-Ym-DcJ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--First-->
+        <scene sceneID="hsj-Kz-NRq">
+            <objects>
+                <viewController id="TVB-Ym-DcJ" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sz8-uv-pJu"/>
+                        <viewControllerLayoutGuide type="bottom" id="j5o-wu-ZQH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qCb-Zj-8Qr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aVJ-6h-P83">
+                                <rect key="frame" x="225" y="111" width="150" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please log in to proceed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-uX-yh7">
+                                <rect key="frame" x="222" y="161" width="157" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvv-al-WTV" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="177" y="272" width="246" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="V4l-No-Obs"/>
+                                    <constraint firstAttribute="height" constant="56" id="jz9-9k-NG3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rvv-al-WTV" firstAttribute="leading" secondItem="qCb-Zj-8Qr" secondAttribute="leading" constant="177" id="BIr-tQ-Knj"/>
+                            <constraint firstAttribute="centerX" secondItem="aVJ-6h-P83" secondAttribute="centerX" id="Gme-UQ-4Ul"/>
+                            <constraint firstItem="aVJ-6h-P83" firstAttribute="top" secondItem="qCb-Zj-8Qr" secondAttribute="top" constant="111" id="L1f-22-Df5"/>
+                            <constraint firstItem="gwg-uX-yh7" firstAttribute="top" secondItem="aVJ-6h-P83" secondAttribute="bottom" constant="8" symbolic="YES" id="OLB-qx-IQu"/>
+                            <constraint firstItem="Rvv-al-WTV" firstAttribute="centerX" secondItem="qCb-Zj-8Qr" secondAttribute="centerX" id="TAd-q1-ONZ"/>
+                            <constraint firstItem="Rvv-al-WTV" firstAttribute="centerY" secondItem="qCb-Zj-8Qr" secondAttribute="centerY" id="Ttb-Rt-beH"/>
+                            <constraint firstItem="aVJ-6h-P83" firstAttribute="top" secondItem="sz8-uv-pJu" secondAttribute="bottom" constant="91" id="Ub9-ZO-7rW"/>
+                            <constraint firstItem="gwg-uX-yh7" firstAttribute="top" secondItem="aVJ-6h-P83" secondAttribute="bottom" constant="8" symbolic="YES" id="Wrt-Vd-qqc"/>
+                            <constraint firstItem="Rvv-al-WTV" firstAttribute="top" secondItem="gwg-uX-yh7" secondAttribute="bottom" constant="88" id="YDg-cE-Iew"/>
+                            <constraint firstItem="aVJ-6h-P83" firstAttribute="top" secondItem="qCb-Zj-8Qr" secondAttribute="top" constant="111" id="gse-a4-bpr"/>
+                            <constraint firstItem="Rvv-al-WTV" firstAttribute="top" secondItem="gwg-uX-yh7" secondAttribute="bottom" constant="94" id="hOJ-XA-JdM"/>
+                            <constraint firstItem="aVJ-6h-P83" firstAttribute="centerX" secondItem="gwg-uX-yh7" secondAttribute="centerX" id="p0O-3u-NBn"/>
+                            <constraint firstAttribute="centerX" secondItem="gwg-uX-yh7" secondAttribute="centerX" id="yl6-Dp-at3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="L1f-22-Df5"/>
+                                <exclude reference="gse-a4-bpr"/>
+                                <exclude reference="OLB-qx-IQu"/>
+                                <exclude reference="BIr-tQ-Knj"/>
+                                <exclude reference="YDg-cE-Iew"/>
+                                <exclude reference="hOJ-XA-JdM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="First" image="first" id="ZSX-AY-b4o"/>
+                    <connections>
+                        <outlet property="loginButton" destination="Rvv-al-WTV" id="0l5-4h-9Ge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvS-vF-7AM" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1897" y="-175"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+    </resources>
+</document>
