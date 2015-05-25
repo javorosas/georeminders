@@ -10,8 +10,8 @@
 		3ED19FAA1B0E6BD400343D01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FA91B0E6BD400343D01 /* main.m */; };
 		3ED19FAD1B0E6BD400343D01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FAC1B0E6BD400343D01 /* AppDelegate.m */; };
 		3ED19FB01B0E6BD400343D01 /* GeoReminders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FAE1B0E6BD400343D01 /* GeoReminders.xcdatamodeld */; };
-		3ED19FB31B0E6BD400343D01 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FB21B0E6BD400343D01 /* FirstViewController.m */; };
-		3ED19FB61B0E6BD400343D01 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FB51B0E6BD400343D01 /* SecondViewController.m */; };
+		3ED19FB31B0E6BD400343D01 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FB21B0E6BD400343D01 /* LoginViewController.m */; };
+		3ED19FB61B0E6BD400343D01 /* CurrentRemindersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FB51B0E6BD400343D01 /* CurrentRemindersController.m */; };
 		3ED19FB91B0E6BD400343D01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED19FB71B0E6BD400343D01 /* Main.storyboard */; };
 		3ED19FBB1B0E6BD400343D01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED19FBA1B0E6BD400343D01 /* Images.xcassets */; };
 		3ED19FBE1B0E6BD400343D01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED19FBC1B0E6BD400343D01 /* LaunchScreen.xib */; };
@@ -20,6 +20,7 @@
 		3ED19FD61B0E92C200343D01 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED19FD41B0E92C200343D01 /* FBSDKLoginKit.framework */; };
 		3ED19FDE1B0EA25E00343D01 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FDD1B0EA25E00343D01 /* User.m */; };
 		3ED19FE11B0EA2D300343D01 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FE01B0EA2D300343D01 /* Reminder.m */; };
+		3ED19FE31B0FA02E00343D01 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED19FE21B0FA02E00343D01 /* Login.storyboard */; };
 		FC21300E6E9282CC74485620 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E49E007CB41A0B264862BBC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +44,10 @@
 		3ED19FAB1B0E6BD400343D01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3ED19FAC1B0E6BD400343D01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3ED19FAF1B0E6BD400343D01 /* GeoReminders.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeoReminders.xcdatamodel; sourceTree = "<group>"; };
-		3ED19FB11B0E6BD400343D01 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		3ED19FB21B0E6BD400343D01 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		3ED19FB41B0E6BD400343D01 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		3ED19FB51B0E6BD400343D01 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		3ED19FB11B0E6BD400343D01 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3ED19FB21B0E6BD400343D01 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3ED19FB41B0E6BD400343D01 /* CurrentRemindersController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentRemindersController.h; sourceTree = "<group>"; };
+		3ED19FB51B0E6BD400343D01 /* CurrentRemindersController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentRemindersController.m; sourceTree = "<group>"; };
 		3ED19FB81B0E6BD400343D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3ED19FBA1B0E6BD400343D01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3ED19FBD1B0E6BD400343D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		3ED19FDD1B0EA25E00343D01 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3ED19FDF1B0EA2D300343D01 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
 		3ED19FE01B0EA2D300343D01 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
+		3ED19FE21B0FA02E00343D01 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +119,11 @@
 				3ED19FD81B0EA07000343D01 /* Models */,
 				3ED19FAB1B0E6BD400343D01 /* AppDelegate.h */,
 				3ED19FAC1B0E6BD400343D01 /* AppDelegate.m */,
-				3ED19FB11B0E6BD400343D01 /* FirstViewController.h */,
-				3ED19FB21B0E6BD400343D01 /* FirstViewController.m */,
-				3ED19FB41B0E6BD400343D01 /* SecondViewController.h */,
-				3ED19FB51B0E6BD400343D01 /* SecondViewController.m */,
+				3ED19FB11B0E6BD400343D01 /* LoginViewController.h */,
+				3ED19FB21B0E6BD400343D01 /* LoginViewController.m */,
+				3ED19FB41B0E6BD400343D01 /* CurrentRemindersController.h */,
+				3ED19FB51B0E6BD400343D01 /* CurrentRemindersController.m */,
+				3ED19FE21B0FA02E00343D01 /* Login.storyboard */,
 				3ED19FB71B0E6BD400343D01 /* Main.storyboard */,
 				3ED19FBA1B0E6BD400343D01 /* Images.xcassets */,
 				3ED19FBC1B0E6BD400343D01 /* LaunchScreen.xib */,
@@ -259,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED19FE31B0FA02E00343D01 /* Login.storyboard in Resources */,
 				3ED19FB91B0E6BD400343D01 /* Main.storyboard in Resources */,
 				3ED19FBE1B0E6BD400343D01 /* LaunchScreen.xib in Resources */,
 				3ED19FBB1B0E6BD400343D01 /* Images.xcassets in Resources */,
@@ -312,12 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ED19FB61B0E6BD400343D01 /* SecondViewController.m in Sources */,
+				3ED19FB61B0E6BD400343D01 /* CurrentRemindersController.m in Sources */,
 				3ED19FB01B0E6BD400343D01 /* GeoReminders.xcdatamodeld in Sources */,
 				3ED19FDE1B0EA25E00343D01 /* User.m in Sources */,
 				3ED19FAD1B0E6BD400343D01 /* AppDelegate.m in Sources */,
 				3ED19FAA1B0E6BD400343D01 /* main.m in Sources */,
-				3ED19FB31B0E6BD400343D01 /* FirstViewController.m in Sources */,
+				3ED19FB31B0E6BD400343D01 /* LoginViewController.m in Sources */,
 				3ED19FE11B0EA2D300343D01 /* Reminder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +454,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GeoReminders/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -465,6 +470,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GeoReminders/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
