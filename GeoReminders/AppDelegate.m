@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface AppDelegate ()
 
@@ -18,6 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    User *user = [User getLoggedUser];
+    if (user) {
+        [self switchToMainStoryboard];
+    } else {
+        [self switchToLoginStoryboard];
+    }
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
@@ -128,6 +137,22 @@
             abort();
         }
     }
+}
+
+#pragma mark - Switch to storyboards
+
+- (void)switchToMainStoryboard {
+    [self switchToStoryboardWithName:@"Main"];
+}
+
+- (void)switchToLoginStoryboard {
+    [self switchToStoryboardWithName:@"Login"];
+}
+
+- (void)switchToStoryboardWithName:(NSString *)name {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:nil];
+    UIViewController *controller = [storyboard instantiateInitialViewController];
+    self.window.rootViewController = controller;
 }
 
 @end

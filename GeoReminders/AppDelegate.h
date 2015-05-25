@@ -20,6 +20,8 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+- (void) switchToLoginStoryboard;
+- (void) switchToMainStoryboard;
 
 @end
 
