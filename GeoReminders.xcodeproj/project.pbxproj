@@ -21,6 +21,7 @@
 		3ED19FDE1B0EA25E00343D01 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FDD1B0EA25E00343D01 /* User.m */; };
 		3ED19FE11B0EA2D300343D01 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FE01B0EA2D300343D01 /* Reminder.m */; };
 		3ED19FE31B0FA02E00343D01 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED19FE21B0FA02E00343D01 /* Login.storyboard */; };
+		3ED19FE61B150A2F00343D01 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FE51B150A2F00343D01 /* CreateViewController.m */; };
 		FC21300E6E9282CC74485620 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E49E007CB41A0B264862BBC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		3ED19FDF1B0EA2D300343D01 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
 		3ED19FE01B0EA2D300343D01 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		3ED19FE21B0FA02E00343D01 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		3ED19FE41B150A2F00343D01 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		3ED19FE51B150A2F00343D01 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				3ED19FB21B0E6BD400343D01 /* LoginViewController.m */,
 				3ED19FB41B0E6BD400343D01 /* CurrentRemindersController.h */,
 				3ED19FB51B0E6BD400343D01 /* CurrentRemindersController.m */,
+				3ED19FE41B150A2F00343D01 /* CreateViewController.h */,
+				3ED19FE51B150A2F00343D01 /* CreateViewController.m */,
 				3ED19FE21B0FA02E00343D01 /* Login.storyboard */,
 				3ED19FB71B0E6BD400343D01 /* Main.storyboard */,
 				3ED19FBA1B0E6BD400343D01 /* Images.xcassets */,
@@ -320,6 +325,7 @@
 				3ED19FB01B0E6BD400343D01 /* GeoReminders.xcdatamodeld in Sources */,
 				3ED19FDE1B0EA25E00343D01 /* User.m in Sources */,
 				3ED19FAD1B0E6BD400343D01 /* AppDelegate.m in Sources */,
+				3ED19FE61B150A2F00343D01 /* CreateViewController.m in Sources */,
 				3ED19FAA1B0E6BD400343D01 /* main.m in Sources */,
 				3ED19FB31B0E6BD400343D01 /* LoginViewController.m in Sources */,
 				3ED19FE11B0EA2D300343D01 /* Reminder.m in Sources */,
