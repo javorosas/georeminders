@@ -14,6 +14,7 @@
 @interface Reminder : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdOn;
+@property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * lat;

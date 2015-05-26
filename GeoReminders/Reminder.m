@@ -18,5 +18,6 @@
 @dynamic lat;
 @dynamic lon;
 @dynamic user;
+@dynamic title;
 
 @end
