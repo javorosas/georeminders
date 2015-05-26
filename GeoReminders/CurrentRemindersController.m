@@ -32,8 +32,8 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self setup];
     [self reloadTable];
 }
@@ -64,6 +64,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CurrentReminderCell"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     Reminder *reminder = (Reminder *)self.reminders[indexPath.row];
     cell.textLabel.text = reminder.title;
     cell.detailTextLabel.text = [self.dateFormatter stringFromDate:reminder.date];
