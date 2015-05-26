@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CurrentRemindersController : UIViewController
+@interface CurrentRemindersController : UITableViewController
 
 
 @end
