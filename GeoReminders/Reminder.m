@@ -17,7 +17,7 @@
 @dynamic date;
 @dynamic lat;
 @dynamic lon;
+@dynamic radius;
 @dynamic user;
-@dynamic title;
 
 @end

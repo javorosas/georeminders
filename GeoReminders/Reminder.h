@@ -14,11 +14,11 @@
 @interface Reminder : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdOn;
-@property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
+@property (nonatomic, retain) NSNumber *radius;
 @property (nonatomic, retain) User *user;
 
 @end
