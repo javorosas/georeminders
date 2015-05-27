@@ -11,6 +11,6 @@
 
 @interface CreateViewController : UIViewController
 
-@property Reminder *reminderDetail;
+@property Reminder *reminder;
 
 @end
