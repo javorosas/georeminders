@@ -131,14 +131,14 @@
 				3ED19FB51B0E6BD400343D01 /* CurrentRemindersController.m */,
 				3ED19FE41B150A2F00343D01 /* CreateViewController.h */,
 				3ED19FE51B150A2F00343D01 /* CreateViewController.m */,
+				3ED19FE71B15776400343D01 /* DetailViewController.h */,
+				3ED19FE81B15776400343D01 /* DetailViewController.m */,
 				3ED19FE21B0FA02E00343D01 /* Login.storyboard */,
 				3ED19FB71B0E6BD400343D01 /* Main.storyboard */,
 				3ED19FBA1B0E6BD400343D01 /* Images.xcassets */,
 				3ED19FBC1B0E6BD400343D01 /* LaunchScreen.xib */,
 				3ED19FAE1B0E6BD400343D01 /* GeoReminders.xcdatamodeld */,
 				3ED19FA71B0E6BD400343D01 /* Supporting Files */,
-				3ED19FE71B15776400343D01 /* DetailViewController.h */,
-				3ED19FE81B15776400343D01 /* DetailViewController.m */,
 			);
 			path = GeoReminders;
 			sourceTree = "<group>";
