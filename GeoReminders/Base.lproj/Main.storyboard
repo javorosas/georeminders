@@ -44,7 +44,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="1Tc-86-a7o"/>
                     <connections>
                         <segue destination="bg6-Wz-6Bl" kind="show" identifier="Create" id="kJs-FY-tF5"/>
-                        <segue destination="M2z-SQ-g4w" kind="show" id="hpq-tX-mcP"/>
+                        <segue destination="M2z-SQ-g4w" kind="show" identifier="Detail" id="hpq-tX-mcP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPy-Vq-NQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,7 +213,7 @@
                         <outlet property="detailsTextView" destination="Xc8-rv-dmu" id="kAO-GW-y2q"/>
                         <outlet property="subtitleLabel" destination="hba-Vm-Bhq" id="Vus-hv-aUd"/>
                         <outlet property="titleLabel" destination="r1F-Bc-xPd" id="eL9-Q8-Zdi"/>
-                        <segue destination="bg6-Wz-6Bl" kind="show" id="2Y4-cc-QGa"/>
+                        <segue destination="bg6-Wz-6Bl" kind="show" identifier="Edit" id="2Y4-cc-QGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5U-nn-J1M" userLabel="First Responder" sceneMemberID="firstResponder"/>

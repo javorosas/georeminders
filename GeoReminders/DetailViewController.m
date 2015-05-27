@@ -21,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.titleLabel.text = self.reminder.title;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
+    self.subtitleLabel.text = [dateFormatter stringFromDate: self.reminder.date];
+    self.detailsTextView.text = self.reminder.details;
 }
 
 - (void)didReceiveMemoryWarning {
