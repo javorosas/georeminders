@@ -40,7 +40,7 @@
 
 - (void)setup {
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    self.dateFormatter.dateStyle = NSDateFormatterFullStyle;
 }
 
 - (void)reloadTable {
@@ -67,25 +67,18 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     Reminder *reminder = (Reminder *)self.reminders[indexPath.row];
     cell.textLabel.text = reminder.title;
-    cell.detailTextLabel.text = [self.dateFormatter stringFromDate:reminder.date];
+    if (reminder.date) {
+        cell.detailTextLabel.text = [self.dateFormatter stringFromDate:reminder.date];
+    } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"lat: %@, lon: %@", reminder.lat, reminder.lon];
+    }
     
     return cell;
 }
 
 - (void)addNewReminder:(id)sender {
-    Reminder *newReminder = [[Reminder alloc] initWithEntity:[NSEntityDescription entityForName:@"Reminder" inManagedObjectContext:self.currentUser.managedObjectContext] insertIntoManagedObjectContext:self.currentUser.managedObjectContext];
-    newReminder.title = @"Recordar!!";
-    newReminder.content = @"Ir por tortillas";
-    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
-    dateComps.day = 3;
-    dateComps.year = 1980;
-    dateComps.month = 5;
-    newReminder.date = [[NSCalendar currentCalendar] dateFromComponents:dateComps];
 
-    [self.currentUser addRemindersObject:newReminder];
-    NSError *error = nil;
-    [self.currentUser.managedObjectContext save:&error];
-    [self reloadTable];
+    [self performSegueWithIdentifier:@"Create" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -41,10 +42,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="1Tc-86-a7o"/>
+                    <connections>
+                        <segue destination="bg6-Wz-6Bl" kind="show" identifier="Create" id="kJs-FY-tF5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPy-Vq-NQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="-1131"/>
+            <point key="canvasLocation" x="878" y="-1131"/>
         </scene>
         <!--Item-->
         <scene sceneID="Jp0-b2-VyT">
@@ -82,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="46" y="-453"/>
         </scene>
-        <!--View Controller-->
+        <!--Create a reminder-->
         <scene sceneID="dXB-G3-eNW">
             <objects>
-                <viewController id="bg6-Wz-6Bl" sceneMemberID="viewController">
+                <viewController title="Create a reminder" id="bg6-Wz-6Bl" customClass="CreateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JMw-qL-S4m"/>
                         <viewControllerLayoutGuide type="bottom" id="HRf-xw-Lz2"/>
@@ -93,12 +97,68 @@
                     <view key="view" contentMode="scaleToFill" id="eID-EM-aTv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NAW-xE-aLh">
+                                <rect key="frame" x="11" y="72" width="573" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="eIJ-SI-rYR"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Time"/>
+                                    <segment title="Location"/>
+                                </segments>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ySQ-7T-nlW">
+                                <rect key="frame" x="11" y="242" width="573" height="266"/>
+                                <date key="date" timeIntervalSinceReferenceDate="454363179.40928501">
+                                    <!--2015-05-26 19:59:39 +0000-->
+                                </date>
+                            </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwk-gp-4hh">
+                                <rect key="frame" x="11" y="146" width="573" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="9Bh-nX-Ugd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5qP-0b-Fft">
+                                <rect key="frame" x="11" y="108" width="573" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jtS-jv-vuE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jwk-gp-4hh" firstAttribute="top" secondItem="5qP-0b-Fft" secondAttribute="bottom" constant="8" symbolic="YES" id="00g-YR-NE9"/>
+                            <constraint firstItem="jwk-gp-4hh" firstAttribute="trailing" secondItem="ySQ-7T-nlW" secondAttribute="trailing" id="11Q-34-HHs"/>
+                            <constraint firstItem="jwk-gp-4hh" firstAttribute="trailing" secondItem="eID-EM-aTv" secondAttribute="trailingMargin" id="9s8-rE-OxU"/>
+                            <constraint firstItem="5qP-0b-Fft" firstAttribute="top" secondItem="NAW-xE-aLh" secondAttribute="bottom" constant="8" symbolic="YES" id="MFq-j9-tBV"/>
+                            <constraint firstItem="jwk-gp-4hh" firstAttribute="leading" secondItem="ySQ-7T-nlW" secondAttribute="leading" id="Qns-5z-DR6"/>
+                            <constraint firstItem="NAW-xE-aLh" firstAttribute="top" secondItem="JMw-qL-S4m" secondAttribute="bottom" constant="8" symbolic="YES" id="Rq1-il-rTk"/>
+                            <constraint firstItem="ySQ-7T-nlW" firstAttribute="top" secondItem="jwk-gp-4hh" secondAttribute="bottom" constant="8" symbolic="YES" id="YDn-1L-U6O"/>
+                            <constraint firstItem="NAW-xE-aLh" firstAttribute="leading" secondItem="eID-EM-aTv" secondAttribute="leadingMargin" constant="-5" id="baf-2s-cxv"/>
+                            <constraint firstItem="5qP-0b-Fft" firstAttribute="leading" secondItem="jwk-gp-4hh" secondAttribute="leading" id="dj6-DM-NOa"/>
+                            <constraint firstItem="NAW-xE-aLh" firstAttribute="leading" secondItem="5qP-0b-Fft" secondAttribute="leading" id="e5t-b5-YmP"/>
+                            <constraint firstItem="HRf-xw-Lz2" firstAttribute="top" secondItem="ySQ-7T-nlW" secondAttribute="bottom" constant="93" id="mVp-Yj-eb7"/>
+                            <constraint firstItem="5qP-0b-Fft" firstAttribute="trailing" secondItem="NAW-xE-aLh" secondAttribute="trailing" id="rTl-CN-JWN"/>
+                            <constraint firstItem="5qP-0b-Fft" firstAttribute="trailing" secondItem="jwk-gp-4hh" secondAttribute="trailing" id="vqN-dT-dP0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateField" destination="ySQ-7T-nlW" id="MXY-Ha-oAD"/>
+                        <outlet property="detailsField" destination="jwk-gp-4hh" id="me4-1J-j0z"/>
+                        <outlet property="modeSelector" destination="NAW-xE-aLh" id="34h-Li-hHW"/>
+                        <outlet property="titleField" destination="5qP-0b-Fft" id="UDY-SA-EZI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taH-Fd-y3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1682" y="-1115"/>
+            <point key="canvasLocation" x="1672" y="-1131"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XPa-rt-CKr">

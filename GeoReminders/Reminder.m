@@ -13,11 +13,12 @@
 @implementation Reminder
 
 @dynamic createdOn;
-@dynamic content;
+@dynamic title;
+@dynamic details;
 @dynamic date;
 @dynamic lat;
 @dynamic lon;
+@dynamic radius;
 @dynamic user;
-@dynamic title;
 
 @end
