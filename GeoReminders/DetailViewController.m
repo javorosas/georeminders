@@ -20,12 +20,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Populate view
     self.titleLabel.text = self.reminder.title;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
     self.subtitleLabel.text = [dateFormatter stringFromDate: self.reminder.date];
     self.detailsTextView.text = self.reminder.details;
+    
+    // Add the edit button
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonTapped:)];
+    self.navigationItem.rightBarButtonItem = editButton;
+}
+
+- (void)editButtonTapped:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {
