@@ -12,7 +12,8 @@
 
 @interface CreateViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
-@property (weak, nonatomic) IBOutlet UITextField *contentField;
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dateField;
 
 @end
@@ -30,6 +31,11 @@
     // Add save button
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveTapped:)];
     self.navigationItem.rightBarButtonItem = saveButton;
+    
+    // Style detailsField TextView
+    self.detailsField.layer.borderWidth = 1;
+    self.detailsField.layer.borderColor = [[[UIColor alloc] initWithRed:200 green:200 blue:200 alpha:1] CGColor];
+    self.detailsField.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +46,8 @@
 - (void)saveTapped:(id)sender {
     User *user = [User getLoggedUser];
     Reminder *newReminder = [[Reminder alloc] initWithEntity:[NSEntityDescription entityForName:@"Reminder" inManagedObjectContext:user.managedObjectContext] insertIntoManagedObjectContext:user.managedObjectContext];
-    newReminder.content = self.contentField.text;
+    newReminder.title = self.titleField.text;
+    newReminder.details = self.detailsField.text;
     newReminder.date = self.dateField.date;
     
     [user addRemindersObject:newReminder];

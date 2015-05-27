@@ -66,7 +66,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CurrentReminderCell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     Reminder *reminder = (Reminder *)self.reminders[indexPath.row];
-    cell.textLabel.text = reminder.content;
+    cell.textLabel.text = reminder.title;
     if (reminder.date) {
         cell.detailTextLabel.text = [self.dateFormatter stringFromDate:reminder.date];
     } else {

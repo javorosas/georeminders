@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reminder.h"
 
 @interface CreateViewController : UIViewController
+
+@property Reminder *reminderDetail;
 
 @end
