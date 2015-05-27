@@ -13,7 +13,8 @@
 @implementation Reminder
 
 @dynamic createdOn;
-@dynamic content;
+@dynamic title;
+@dynamic details;
 @dynamic date;
 @dynamic lat;
 @dynamic lon;
