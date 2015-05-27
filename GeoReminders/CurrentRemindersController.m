@@ -82,6 +82,13 @@
     [self performSegueWithIdentifier:@"Detail" sender:reminder];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.currentUser removeRemindersObject:self.reminders[indexPath.row]];
+    NSError *error = nil;
+    [self.currentUser.managedObjectContext save:&error];
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+}
+
 - (void)addNewReminder:(id)sender {
 
     [self performSegueWithIdentifier:@"Create" sender:nil];
