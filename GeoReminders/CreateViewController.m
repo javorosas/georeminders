@@ -34,7 +34,7 @@
     
     // Style detailsField TextView
     self.detailsField.layer.borderWidth = 1;
-    self.detailsField.layer.borderColor = [[[UIColor alloc] initWithRed:200 green:200 blue:200 alpha:1] CGColor];
+    self.detailsField.layer.borderColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0].CGColor;
     self.detailsField.layer.cornerRadius = 5;
 }
 

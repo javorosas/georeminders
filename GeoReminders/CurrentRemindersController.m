@@ -10,6 +10,7 @@
 #import "User.h"
 #import "Reminder.h"
 #import "AppDelegate.h"
+#import "DetailViewController.h"
 
 @interface CurrentRemindersController ()
 
@@ -76,13 +77,22 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Reminder *reminder = self.reminders[indexPath.row];
+    [self performSegueWithIdentifier:@"Detail" sender:reminder];
+}
+
 - (void)addNewReminder:(id)sender {
 
     [self performSegueWithIdentifier:@"Create" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    if ([segue.identifier isEqualToString:@"Detail"]) {
+        Reminder *reminder = (Reminder *)sender;
+        DetailViewController *detailController = (DetailViewController *)segue.destinationViewController;
+        detailController.reminder = reminder;
+    }
 }
 
 @end
