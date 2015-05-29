@@ -9,6 +9,7 @@
 #import "CreateViewController.h"
 #import "User.h"
 #import "Reminder.h"
+#import "NotificationService.h"
 
 @interface CreateViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
@@ -58,12 +59,18 @@
 }
 
 - (void)saveTapped:(id)sender {
-    if (self.reminder) {
-        [self editCurrentReminder];
+    // Validate form
+    // DatePicker should not be prior to today
+    if (self.dateField.date < [NSDate date]) {
+        [UIAlertController alertControllerWithTitle:@"Warning" message:@"You should set a date past today" preferredStyle:UIAlertControllerStyleAlert];
     } else {
-        [self createReminder];
+        if (self.reminder) {
+            [self editCurrentReminder];
+        } else {
+            [self createReminder];
+        }
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)createReminder {
@@ -71,6 +78,10 @@
     Reminder *newReminder = [[Reminder alloc] initWithEntity:[NSEntityDescription entityForName:@"Reminder" inManagedObjectContext:user.managedObjectContext] insertIntoManagedObjectContext:user.managedObjectContext];
     newReminder.title = self.titleField.text;
     newReminder.details = self.detailsField.text;
+    
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    newReminder.uuid = uuid;
+    
     if (self.modeSelector.selectedSegmentIndex == 0) {
         newReminder.lat = nil;
         newReminder.lon = nil;
@@ -83,6 +94,7 @@
     [user addRemindersObject:newReminder];
     NSError *error = nil;
     [user.managedObjectContext save:&error];
+    [NotificationService scheduleReminderNotification:newReminder];
 }
 
 - (void)editCurrentReminder {
@@ -98,6 +110,8 @@
     }
     NSError *error = nil;
     [self.reminder.managedObjectContext save:&error];
+    [NotificationService cancelReminderNotification:self.reminder.uuid];
+    [NotificationService scheduleReminderNotification:self.reminder];
 }
 
 /*

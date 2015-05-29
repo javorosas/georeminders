@@ -30,8 +30,19 @@
     self.detailsTextView.text = self.reminder.details;
     
     // Add the edit button
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonTapped:)];
-    self.navigationItem.rightBarButtonItem = editButton;
+    
+    if (self.presentingViewController) {
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModal)];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    }else{
+        UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonTapped:)];
+        self.navigationItem.rightBarButtonItem = editButton;
+    }
+    
+}
+
+-(void)dismissModal{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)editButtonTapped:(id)sender {

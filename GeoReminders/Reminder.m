@@ -12,6 +12,7 @@
 
 @implementation Reminder
 
+@dynamic uuid;
 @dynamic createdOn;
 @dynamic title;
 @dynamic details;

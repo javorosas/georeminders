@@ -13,6 +13,7 @@
 
 @interface Reminder : NSManagedObject
 
+@property (nonatomic, retain) NSString *uuid;
 @property (nonatomic, retain) NSDate * createdOn;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * details;
