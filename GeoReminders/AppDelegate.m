@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "User.h"
+#import "Reminder.h"
+#import "DetailViewController.h"
+#import "CurrentRemindersController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
@@ -19,6 +22,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Request for alert permissions
+    UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+    [application registerUserNotificationSettings:settings];
+    
     // Override point for customization after application launch.
     User *user = [User getLoggedUser];
     if (user) {
@@ -57,6 +65,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    User *user = [User getLoggedUser];
+    for (Reminder *reminder in user.reminders) {
+        if ([reminder.uuid isEqualToString:notification.userInfo[@"uuid"]]) {
+            [self switchToDetailViewWithReminder:reminder];
+            return;
+        }
+    }
 }
 
 #pragma mark - Core Data stack
@@ -153,6 +171,17 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:nil];
     UIViewController *controller = [storyboard instantiateInitialViewController];
     self.window.rootViewController = controller;
+}
+
+- (void)switchToDetailViewWithReminder:(Reminder *)reminder {
+    UIViewController *mainVC = (UIViewController *)self.window.rootViewController;
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    DetailViewController *detail = (DetailViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"DetailViewController"];
+    detail.reminder = reminder;
+    UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:detail];
+    [mainVC presentViewController:navC animated:YES completion:nil];
 }
 
 @end
