@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reminder.h"
 
 @interface NotificationService : NSObject
+
++ (void)scheduleReminderNotification:(Reminder *)reminder;
++ (void)cancelReminderNotification:(NSString *)uid;
 
 @end
