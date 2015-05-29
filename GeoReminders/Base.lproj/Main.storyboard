@@ -164,7 +164,7 @@
         <!--Detail View Controller-->
         <scene sceneID="1ZX-x4-3Xe">
             <objects>
-                <viewController id="M2z-SQ-g4w" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="M2z-SQ-g4w" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9af-Xs-iVs"/>
                         <viewControllerLayoutGuide type="bottom" id="rCi-gt-dIy"/>
@@ -241,6 +241,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kJs-FY-tF5"/>
+        <segue reference="2Y4-cc-QGa"/>
     </inferredMetricsTieBreakers>
 </document>

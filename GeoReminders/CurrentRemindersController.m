@@ -11,6 +11,7 @@
 #import "Reminder.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "NotificationService.h"
 
 @interface CurrentRemindersController ()
 
@@ -83,14 +84,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.currentUser removeRemindersObject:self.reminders[indexPath.row]];
+    Reminder *reminder = self.reminders[indexPath.row];
+    [NotificationService cancelReminderNotification:reminder.objectID.URIRepresentation.absoluteString];
+    [self.currentUser removeRemindersObject:reminder];
     NSError *error = nil;
     [self.currentUser.managedObjectContext save:&error];
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
 }
 
 - (void)addNewReminder:(id)sender {
-
     [self performSegueWithIdentifier:@"Create" sender:nil];
 }
 
