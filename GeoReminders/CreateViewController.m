@@ -23,8 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+    // Fix scrollView problems
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupView];
 }
 
@@ -61,8 +61,8 @@
 - (void)saveTapped:(id)sender {
     // Validate form
     // DatePicker should not be prior to today
-    if (self.dateField.date < [NSDate date]) {
-        [UIAlertController alertControllerWithTitle:@"Warning" message:@"You should set a date past today" preferredStyle:UIAlertControllerStyleAlert];
+    if ([self.dateField.date compare:[NSDate date]] == NSOrderedAscending) {
+//        [UIAlertController alertControllerWithTitle:@"Warning" message:@"You should set a date past today" preferredStyle:UIAlertControllerStyleAlert];
     } else {
         if (self.reminder) {
             [self editCurrentReminder];
