@@ -13,10 +13,16 @@
 
 + (void)scheduleReminderNotification:(Reminder *)reminder {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = reminder.details;
-    notification.alertTitle = reminder.title;
+    
+    if ([notification respondsToSelector:@selector(setAlertTitle:)]) {
+        notification.alertTitle = reminder.title;
+        notification.alertBody = reminder.details;
+    } else {
+        notification.alertBody = reminder.title;
+    }
     notification.fireDate = reminder.date;
     notification.userInfo = @{ @"uuid": reminder.uuid };
+    notification.timeZone = [NSTimeZone defaultTimeZone];
     UIApplication *app = [UIApplication sharedApplication];
     [app scheduleLocalNotification:notification];
 }
