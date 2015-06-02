@@ -25,7 +25,8 @@
     // Populate view
     self.titleLabel.text = self.reminder.title;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
+    [dateFormatter setDateFormat:@"EEEE, MMM dd, YYYY 'at' hh:mm a"];
+//    dateFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
     self.subtitleLabel.text = [dateFormatter stringFromDate: self.reminder.date];
     self.detailsTextView.text = self.reminder.details;
     
