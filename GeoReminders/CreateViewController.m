@@ -9,7 +9,8 @@
 #import "CreateViewController.h"
 #import "User.h"
 #import "Reminder.h"
-#import "NotificationService.h"
+//#import "NotificationService.h"
+#import "GeoReminders-Swift.h"
 
 @interface CreateViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;

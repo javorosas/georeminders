@@ -27,10 +27,10 @@
     [app scheduleLocalNotification:notification];
 }
 
-+ (void)cancelReminderNotification:(NSString *)uid {
++ (void)cancelReminderNotification:(NSString *)uuid {
     UIApplication *app = [UIApplication sharedApplication];
     for (UILocalNotification *notification in [app scheduledLocalNotifications]) {
-        if (notification.userInfo[@"uuid"]) {
+        if ([notification.userInfo[@"uuid"] isEqualToString:uuid]) {
             [app cancelLocalNotification:notification];
         }
     }
