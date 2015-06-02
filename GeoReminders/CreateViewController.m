@@ -50,8 +50,13 @@
             // TODO: populate lat and lon in map View
             self.modeSelector.selectedSegmentIndex = 1;
         }
-        
     }
+    
+    // Set view title
+    if (self.reminder)
+        self.title = @"Edit";
+    else
+        self.title = @"Create";
 }
 
 - (void)didReceiveMemoryWarning {

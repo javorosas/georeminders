@@ -87,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="46" y="-453"/>
         </scene>
-        <!--New reminder-->
+        <!--Create View Controller-->
         <scene sceneID="dXB-G3-eNW">
             <objects>
-                <viewController title="New reminder" id="bg6-Wz-6Bl" customClass="CreateViewController" sceneMemberID="viewController">
+                <viewController id="bg6-Wz-6Bl" customClass="CreateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JMw-qL-S4m"/>
                         <viewControllerLayoutGuide type="bottom" id="HRf-xw-Lz2"/>
