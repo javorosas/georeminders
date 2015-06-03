@@ -16,7 +16,7 @@
 @interface CurrentRemindersController ()
 
 @property User *currentUser;
-@property NSArray *reminders;
+@property NSMutableArray *reminders;
 
 @property NSDateFormatter *dateFormatter;
 
@@ -46,7 +46,8 @@
 }
 
 - (void)reloadTable {
-    self.reminders = [self.currentUser.reminders allObjects];
+    self.reminders = [[NSMutableArray alloc] init];
+    [self.reminders addObjectsFromArray:[self.currentUser.reminders allObjects]];
     [self.tableView reloadData];
 }
 
@@ -90,6 +91,7 @@
     NSError *error = nil;
     [self.currentUser.managedObjectContext save:&error];
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+    [self.reminders removeObject:reminder];
 }
 
 - (void)addNewReminder:(id)sender {
