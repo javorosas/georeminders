@@ -119,6 +119,7 @@
 }
 
 - (void)editCurrentReminder {
+    [NotificationService cancelReminderNotification:self.reminder.uuid];
     self.reminder.title = self.titleField.text;
     self.reminder.details = self.detailsField.text;
     if (self.modeSelector.selectedSegmentIndex == 0) {
@@ -129,9 +130,11 @@
         self.reminder.date = nil;
         // TODO: set lat and lon from map View
     }
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    self.reminder.uuid = uuid;
     NSError *error = nil;
     [self.reminder.managedObjectContext save:&error];
-    [NotificationService cancelReminderNotification:self.reminder.uuid];
+    
     [NotificationService scheduleReminderNotification:self.reminder];
 }
 
