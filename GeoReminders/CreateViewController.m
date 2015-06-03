@@ -69,15 +69,9 @@
     // DatePicker should not be prior to today
     BOOL dateIsOlderThanNow = [self.dateField.date compare:[NSDate date]] == NSOrderedAscending;
     if (dateIsOlderThanNow) {
-        if ([UIAlertController class]) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hmm" message:@"I can't remind you in the past" preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alert animated:YES completion:nil];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hmmm" message:@"I can't remind you in the past" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-//        [UIAlertController alertControllerWithTitle:@"Warning" message:@"You should set a date past today" preferredStyle:UIAlertControllerStyleAlert];
+        [self alertWithTitle:@"Hmmm" message:@"I can't remind you in the past"];
+    } else if (self.titleField.text.length == 0) {
+        [self alertWithTitle:@"Couldn't save" message:@"Reminder must have a title"];
     } else {
         if (self.reminder) {
             [self editCurrentReminder];
@@ -85,6 +79,18 @@
             [self createReminder];
         }
         [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+
+- (void)alertWithTitle:(NSString *)title message:(NSString *)message {
+    if ([UIAlertController class]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
