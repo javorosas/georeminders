@@ -106,11 +106,12 @@
     if (self.modeSelector.selectedSegmentIndex == 0) {
         newReminder.lat = nil;
         newReminder.lon = nil;
-        newReminder.date = self.dateField.date;
+        newReminder.date = [self dateWithZeroSeconds:self.dateField.date];
     } else {
         newReminder.date = nil;
         // TODO: set lat and lon from map View
     }
+
     
     [user addRemindersObject:newReminder];
     NSError *error = nil;
@@ -122,20 +123,27 @@
     [NotificationService cancelReminderNotification:self.reminder.uuid];
     self.reminder.title = self.titleField.text;
     self.reminder.details = self.detailsField.text;
+    
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    self.reminder.uuid = uuid;
+    
     if (self.modeSelector.selectedSegmentIndex == 0) {
         self.reminder.lat = nil;
         self.reminder.lon = nil;
-        self.reminder.date = self.dateField.date;
+        self.reminder.date = [self dateWithZeroSeconds:self.dateField.date];
     } else {
         self.reminder.date = nil;
         // TODO: set lat and lon from map View
     }
-    NSString *uuid = [[NSUUID UUID] UUIDString];
-    self.reminder.uuid = uuid;
     NSError *error = nil;
     [self.reminder.managedObjectContext save:&error];
-    
     [NotificationService scheduleReminderNotification:self.reminder];
+}
+
+- (NSDate *)dateWithZeroSeconds:(NSDate *)date
+{
+    NSTimeInterval time = floor([date timeIntervalSinceReferenceDate] / 60.0) * 60.0;
+    return  [NSDate dateWithTimeIntervalSinceReferenceDate:time];
 }
 
 /*
