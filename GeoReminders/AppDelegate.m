@@ -11,8 +11,11 @@
 #import "Reminder.h"
 #import "DetailViewController.h"
 #import "CurrentRemindersController.h"
+#import "NotificationService.h"
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface AppDelegate ()
 
@@ -33,12 +36,35 @@
     // Override point for customization after application launch.
     User *user = [User getLoggedUser];
     if (user) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        // Start locationManager
+        for (Reminder *reminder in user.reminders) {
+            if (!reminder.date) {
+                CLLocationCoordinate2D coor;
+                coor.latitude = [reminder.lat doubleValue];
+                coor.longitude = [reminder.lon doubleValue];
+                [self.locationManager startMonitoringForRegion:[[CLCircularRegion alloc] initWithCenter:coor radius:30 identifier:reminder.uuid]];
+            }
+        }
+        
         [self switchToMainStoryboard];
     } else {
         [self switchToLoginStoryboard];
     }
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (void)monitorRegionWithCenter:(CLLocationCoordinate2D)coordinate uuid:(NSString *)uuid {
+    [self.locationManager startMonitoringForRegion:[[CLCircularRegion alloc] initWithCenter:coordinate radius:30 identifier:uuid]];
+}
+
+- (void)cancelMonitoringRegionWithUUID:(NSString *)uuid {
+    for (CLRegion *region in [self.locationManager monitoredRegions]) {
+        if ([region.identifier isEqualToString:uuid]) {
+            [self.locationManager stopMonitoringForRegion:region];
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -76,6 +102,17 @@
         if ([reminder.uuid isEqualToString:notification.userInfo[@"uuid"]]) {
             [self switchToDetailViewWithReminder:reminder];
             return;
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    User *user = [User getLoggedUser];
+    if (user) {
+        for (Reminder *reminder in user.reminders) {
+            if ([reminder.uuid isEqualToString:region.identifier]) {
+                [NotificationService scheduleReminderNotification:reminder];
+            }
         }
     }
 }

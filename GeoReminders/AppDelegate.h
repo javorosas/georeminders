@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -22,6 +22,8 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (void)monitorRegionWithCenter:(CLLocationCoordinate2D)coordinate uuid:(NSString *)uuid;
+- (void)cancelMonitoringRegionWithUUID:(NSString *)uuid;
 
 - (void) switchToLoginStoryboard;
 - (void) switchToMainStoryboard;

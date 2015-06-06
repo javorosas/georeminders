@@ -20,7 +20,12 @@
     } else {
         notification.alertBody = reminder.title;
     }
-    notification.fireDate = reminder.date;
+    if (reminder.date) {
+        notification.fireDate = reminder.date;
+    } else {
+        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    }
+    
     notification.userInfo = @{ @"uuid": reminder.uuid };
     notification.timeZone = [NSTimeZone defaultTimeZone];
     UIApplication *app = [UIApplication sharedApplication];
