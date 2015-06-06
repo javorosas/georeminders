@@ -11,12 +11,16 @@
 #import "Reminder.h"
 //#import "NotificationService.h"
 #import "GeoReminders-Swift.h"
+#import <MapKit/MapKit.h>
 
 @interface CreateViewController ()
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dateField;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property (nonatomic) BOOL hasCenteredMap;
 
 @end
 
@@ -26,6 +30,7 @@
     [super viewDidLoad];
     // Fix scrollView problems
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.mapView.delegate = self;
     [self setupView];
 }
 
@@ -57,11 +62,34 @@
         self.title = @"Edit";
     else
         self.title = @"Create";
+    
+    // Reset validation to center map at user location
+    self.hasCenteredMap = NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)modeSelected:(id)sender {
+    switch(self.modeSelector.selectedSegmentIndex) {
+        case 0:
+            self.dateField.hidden = NO;
+            self.mapView.hidden = YES;
+            break;
+        case 1:
+            self.dateField.hidden = YES;
+            self.mapView.hidden = NO;
+            break;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    if (!self.hasCenteredMap) {;
+        mapView.region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 100, 100);
+        self.hasCenteredMap = YES;
+    }
 }
 
 - (void)saveTapped:(id)sender {

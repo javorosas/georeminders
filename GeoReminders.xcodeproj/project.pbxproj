@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E585F0E1B17834700DE6CED /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E585F0D1B17834700DE6CED /* NotificationService.m */; };
+		3E58CB0B1B2272CD00A21EF0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E58CB0A1B2272CD00A21EF0 /* CoreLocation.framework */; };
+		3E58CB0D1B2272D900A21EF0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E58CB0C1B2272D900A21EF0 /* MapKit.framework */; };
 		3E8CCFFB1B1E15640012A5A2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CCFFA1B1E15640012A5A2 /* NotificationService.swift */; };
 		3ED19FAA1B0E6BD400343D01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FA91B0E6BD400343D01 /* main.m */; };
 		3ED19FAD1B0E6BD400343D01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED19FAC1B0E6BD400343D01 /* AppDelegate.m */; };
@@ -44,6 +46,8 @@
 		1E28F40ED6EA43329B7F152F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3E585F0C1B17834700DE6CED /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		3E585F0D1B17834700DE6CED /* NotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		3E58CB0A1B2272CD00A21EF0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3E58CB0C1B2272D900A21EF0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E8CCFF91B1E15630012A5A2 /* GeoReminders-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeoReminders-Bridging-Header.h"; sourceTree = "<group>"; };
 		3E8CCFFA1B1E15640012A5A2 /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		3ED19FA41B0E6BD400343D01 /* GeoReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E58CB0D1B2272D900A21EF0 /* MapKit.framework in Frameworks */,
+				3E58CB0B1B2272CD00A21EF0 /* CoreLocation.framework in Frameworks */,
 				3ED19FD61B0E92C200343D01 /* FBSDKLoginKit.framework in Frameworks */,
 				3ED19FD51B0E92C200343D01 /* FBSDKCoreKit.framework in Frameworks */,
 				FC21300E6E9282CC74485620 /* libPods.a in Frameworks */,
@@ -182,6 +188,8 @@
 		3ED19FD71B0E92CF00343D01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E58CB0C1B2272D900A21EF0 /* MapKit.framework */,
+				3E58CB0A1B2272CD00A21EF0 /* CoreLocation.framework */,
 				3ED19FD31B0E92C100343D01 /* FBSDKCoreKit.framework */,
 				3ED19FD41B0E92C200343D01 /* FBSDKLoginKit.framework */,
 				0E49E007CB41A0B264862BBC /* libPods.a */,
@@ -252,6 +260,11 @@
 					3ED19FA31B0E6BD300343D01 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = TF76XBAQC8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					3ED19FC21B0E6BD400343D01 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -425,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_MODULE_NAME = GeoReminders;
@@ -463,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = GeoReminders;
 				SDKROOT = iphoneos;

@@ -86,7 +86,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     Reminder *reminder = self.reminders[indexPath.row];
-    [NotificationService cancelReminderNotification:reminder.objectID.URIRepresentation.absoluteString];
+    [NotificationService cancelReminderNotification:reminder.uuid];
     [self.currentUser removeRemindersObject:reminder];
     NSError *error = nil;
     [self.currentUser.managedObjectContext save:&error];

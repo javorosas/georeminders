@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "Reminder.h"
 
-@interface CreateViewController : UIViewController
+@interface CreateViewController : UIViewController<MKMapViewDelegate>
 
 @property Reminder *reminder;
 

@@ -130,9 +130,12 @@
                                                 <exclude reference="n6r-OY-pC6"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="modeSelected:" destination="bg6-Wz-6Bl" eventType="valueChanged" id="OIN-em-UrL"/>
+                                        </connections>
                                     </segmentedControl>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ySQ-7T-nlW">
-                                        <rect key="frame" x="20" y="242" width="292" height="162"/>
+                                        <rect key="frame" x="20" y="242" width="292" height="164"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="216" id="fao-Mh-BxG"/>
                                         </constraints>
@@ -145,11 +148,17 @@
                                             </mask>
                                         </variation>
                                     </datePicker>
+                                    <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxE-8U-9vi">
+                                        <rect key="frame" x="20" y="242" width="292" height="162"/>
+                                    </mapView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jwk-gp-4hh" firstAttribute="trailing" secondItem="ySQ-7T-nlW" secondAttribute="trailing" id="5kT-zf-p2m"/>
+                                    <constraint firstItem="ySQ-7T-nlW" firstAttribute="leading" secondItem="jxE-8U-9vi" secondAttribute="leading" id="8Cr-PL-MvT"/>
+                                    <constraint firstItem="ySQ-7T-nlW" firstAttribute="top" secondItem="jxE-8U-9vi" secondAttribute="top" id="8u6-Br-fwN"/>
                                     <constraint firstItem="ySQ-7T-nlW" firstAttribute="top" secondItem="jwk-gp-4hh" secondAttribute="bottom" constant="8" symbolic="YES" id="BkK-75-lq1"/>
                                     <constraint firstItem="NAW-xE-aLh" firstAttribute="leading" secondItem="ZFx-Je-svL" secondAttribute="leading" constant="20" id="Ejk-Nf-48G"/>
+                                    <constraint firstItem="ySQ-7T-nlW" firstAttribute="bottom" secondItem="jxE-8U-9vi" secondAttribute="bottom" id="FKQ-cp-ci9"/>
                                     <constraint firstAttribute="centerX" secondItem="NAW-xE-aLh" secondAttribute="centerX" id="Jfu-PD-4cU"/>
                                     <constraint firstItem="5qP-0b-Fft" firstAttribute="top" secondItem="NAW-xE-aLh" secondAttribute="bottom" constant="8" symbolic="YES" id="MWm-SV-6lo"/>
                                     <constraint firstItem="jwk-gp-4hh" firstAttribute="leading" secondItem="5qP-0b-Fft" secondAttribute="leading" id="TPm-4k-D1j"/>
@@ -161,8 +170,9 @@
                                     <constraint firstAttribute="trailing" secondItem="NAW-xE-aLh" secondAttribute="trailing" constant="20" id="jdn-CF-g7n"/>
                                     <constraint firstItem="NAW-xE-aLh" firstAttribute="leading" secondItem="5qP-0b-Fft" secondAttribute="leading" id="jtW-CK-Jyb"/>
                                     <constraint firstItem="jwk-gp-4hh" firstAttribute="trailing" secondItem="5qP-0b-Fft" secondAttribute="trailing" id="lA5-Bu-TjH"/>
+                                    <constraint firstItem="ySQ-7T-nlW" firstAttribute="trailing" secondItem="jxE-8U-9vi" secondAttribute="trailing" id="nuN-FF-Ywd"/>
                                     <constraint firstAttribute="bottom" secondItem="ySQ-7T-nlW" secondAttribute="bottom" constant="93" id="nvG-rJ-Rus"/>
-                                    <constraint firstAttribute="bottom" secondItem="ySQ-7T-nlW" secondAttribute="bottom" constant="115" id="tEs-h5-JbC"/>
+                                    <constraint firstAttribute="bottom" secondItem="ySQ-7T-nlW" secondAttribute="bottom" id="tEs-h5-JbC"/>
                                     <constraint firstItem="NAW-xE-aLh" firstAttribute="top" secondItem="ZFx-Je-svL" secondAttribute="top" constant="72" id="wBm-Sx-pDX"/>
                                 </constraints>
                                 <variation key="default">
@@ -186,6 +196,7 @@
                     <connections>
                         <outlet property="dateField" destination="ySQ-7T-nlW" id="MXY-Ha-oAD"/>
                         <outlet property="detailsField" destination="jwk-gp-4hh" id="me4-1J-j0z"/>
+                        <outlet property="mapView" destination="jxE-8U-9vi" id="UJh-cK-JRd"/>
                         <outlet property="modeSelector" destination="NAW-xE-aLh" id="34h-Li-hHW"/>
                         <outlet property="titleField" destination="5qP-0b-Fft" id="UDY-SA-EZI"/>
                     </connections>
