@@ -24,14 +24,20 @@
     [super viewDidLoad];
     // Populate view
     self.titleLabel.text = self.reminder.title;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE, MMM dd, YYYY 'at' hh:mm a"];
-//    dateFormatter.dateStyle = NSDateIntervalFormatterFullStyle;
-    self.subtitleLabel.text = [dateFormatter stringFromDate: self.reminder.date];
+    if (self.reminder.date) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEEE, MMM dd, YYYY 'at' hh:mm a"];
+        self.subtitleLabel.text = [dateFormatter stringFromDate: self.reminder.date];
+    } else {
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        numberFormatter.minimumFractionDigits = 4;
+        numberFormatter.maximumFractionDigits = 4;
+        self.subtitleLabel.text = [NSString stringWithFormat:@"%@, %@", [numberFormatter stringFromNumber:self.reminder.lat], [numberFormatter stringFromNumber:self.reminder.lon]];
+    }
     self.detailsTextView.text = self.reminder.details;
     
     // Add the edit button
-    
     if (self.presentingViewController) {
         UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModal)];
         self.navigationItem.leftBarButtonItem = cancelButton;

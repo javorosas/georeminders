@@ -19,6 +19,7 @@
 @property NSMutableArray *reminders;
 
 @property NSDateFormatter *dateFormatter;
+@property AppDelegate *appDelegate;
 
 @end
 
@@ -32,6 +33,7 @@
 //    [alert show];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewReminder:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -86,7 +88,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     Reminder *reminder = self.reminders[indexPath.row];
-    [NotificationService cancelReminderNotification:reminder.uuid];
+    if (reminder.date) {
+        [NotificationService cancelReminderNotification:reminder.uuid];
+    } else {
+        [self.appDelegate cancelMonitoringRegionWithUUID:reminder.uuid];
+    }
     [self.currentUser removeRemindersObject:reminder];
     NSError *error = nil;
     [self.currentUser.managedObjectContext save:&error];
