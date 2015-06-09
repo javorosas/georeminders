@@ -31,12 +31,18 @@
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
         [application registerUserNotificationSettings:settings];
     }
-//    // Request for alert permissions
-    
+
     // Override point for customization after application launch.
     User *user = [User getLoggedUser];
     if (user) {
         self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        self.locationManager.distanceFilter = 5;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
+        [self.locationManager startUpdatingLocation];
         // Start locationManager
         for (Reminder *reminder in user.reminders) {
             if (!reminder.date) {
@@ -115,6 +121,19 @@
             }
         }
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    NSLog(@"Todo bieen");
+}
+
+- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
+    NSLog(@"%@", error.localizedDescription);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *location = (CLLocation *)locations.firstObject;
+    NSLog(@"Location: %0.04f, %0.04f", location.coordinate.latitude, location.coordinate.longitude);
 }
 
 #pragma mark - Core Data stack
