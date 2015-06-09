@@ -19,9 +19,15 @@ class NotificationService: NSObject {
         } else {
             notification.alertBody = reminder.title;
         }
-        notification.fireDate = reminder.date;
+        if ((reminder.date) != nil) {
+            notification.fireDate = reminder.date;
+        } else {
+            notification.fireDate = NSDate.new().dateByAddingTimeInterval(1);
+        }
+        
         notification.userInfo = ["uuid": reminder.uuid];
         notification.timeZone = NSTimeZone.defaultTimeZone();
+        
         var app = UIApplication.sharedApplication();
         app.scheduleLocalNotification(notification);
     }
